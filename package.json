@@ -1,0 +1,19 @@
+{
+  "name": "blacknscholes",
+  "version": "1.0.0",
+  "description": "Calculates Brazilian Stock Market Derivative Prizes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vandercijr/blacknscholes.git"
+  },
+  "author": "Vanderci Curvelo Junior",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vandercijr/blacknscholes/issues"
+  },
+  "homepage": "https://github.com/vandercijr/blacknscholes#readme"
+}

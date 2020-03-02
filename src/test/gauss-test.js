@@ -9,6 +9,7 @@
  */
 
 const chai = require('chai');
+const integration = require('../integration.js');
 const gauss = require('../gauss.js');
 const assert = chai.assert;
 
@@ -26,8 +27,8 @@ describe('TDD for black & scholes operations', () => {
 	it('Should calculate the standard probability density function', () => {
 		assert.equal(gauss.spdf(1).toFixed(8), 0.24197072);
 	});
-	// it('Should calculate the default normal distribution of a given value', () => {
-	// 	assert.equal(gauss.normalDistribution(10), 1);
-	// 	assert.equal(gauss.normalDistribution(3.5), 1);
-	// })
+
+	it('Should calculate the cumulative standard normal distribution returning a value from z table', () => {
+		assert.equal(integration.trapezoid(gauss.spdf, -50, 1, Math.pow(10, 6)).toFixed(9), 0.841344746);
+	});
 });

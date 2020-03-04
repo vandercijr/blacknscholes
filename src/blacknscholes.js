@@ -10,7 +10,7 @@ const blacknscholes = {
 		return d1term - volatility * Math.sqrt(rtime);
 	},
 	//Theoretical derivative price
-	derivativePrice : (sprice, strike, irate, rtime, d1, d2, type) => {
+	price : (sprice, strike, irate, rtime, d1, d2, type) => {
 		let type_factor = 1;
 
 		if (type === 'put') {

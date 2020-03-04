@@ -21,7 +21,11 @@ const blacknscholes = {
 		const nd2 = gauss.standardNormalDistribution(d2* type_factor).toFixed(9);
 
 		return (type_factor * (sprice * nd1)) - (type_factor * (strike * Math.exp(irate*rtime*-1) * nd2));
-	}		
+	},
+	//delta greek measure
+	delta : (d1term, type) => {
+		return gauss.standardNormalDistribution(d1term);
+	}
 }
 
 module.exports = blacknscholes;

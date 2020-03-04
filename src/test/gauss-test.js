@@ -29,6 +29,6 @@ describe('TDD for normal distribution operations', () => {
 	});
 
 	it('Should calculate the cumulative standard normal distribution returning a value from z table', () => {
-		assert.equal(integration.trapezoid(gauss.spdf, -50, 1, Math.pow(10, 6)).toFixed(9), 0.841344746);
+		assert.equal(gauss.standardNormalDistribution(1).toFixed(9), 0.841344746);
 	});
 });

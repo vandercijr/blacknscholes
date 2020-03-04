@@ -1,3 +1,5 @@
+const integration = require('./integration.js');
+
 const gauss = {
 	zscore : (x, mu, sigma) => {
     	return (x - mu) / sigma;
@@ -7,6 +9,9 @@ const gauss = {
 	},
 	spdf : (z) => {
 		return gauss.normalizationFactor(1) * Math.exp(Math.pow(gauss.zscore(z, 0, 1),2) * -0.5);
+	},
+	standardNormalDistribution : (z) => {
+		return integration.trapezoid(gauss.spdf, -50, z, Math.pow(10, 6));
 	}
 }
 

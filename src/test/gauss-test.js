@@ -13,7 +13,7 @@ const integration = require('../integration.js');
 const gauss = require('../gauss.js');
 const assert = chai.assert;
 
-describe('TDD for black & scholes operations', () => {
+describe('TDD for normal distribution operations', () => {
 	it('Should calculate the zscore of a random variable', () => {
 		assert.equal(gauss.zscore(12, 2, 5), 2);
 		assert.equal(gauss.zscore(10, 1, 5), 1.8);

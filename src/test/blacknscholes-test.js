@@ -13,6 +13,11 @@ const blacknscholes = require('../blacknscholes.js');
 const assert = chai.assert;
 
 describe('TDD for black & scholes operations', () => {
-	it('Should calculate the zscore of a random variable', () => {
+	it('Should calculate the d1 B&S equation', () => {
+		assert.equal(blacknscholes.d1Term(32,34,0.3,0.0875,0.0822).toFixed(9), -0.578213940);
 	});
+
+	it('Should calculate the d2 term B&S equation', () => {
+		assert.equal(blacknscholes.d2Term(blacknscholes.d1Term(32,34,0.3,0.0875,0.0822).toFixed(9),0.3,0.0822).toFixed(9), -0.578213940);
+	});	
 });

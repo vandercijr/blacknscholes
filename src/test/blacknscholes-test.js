@@ -21,10 +21,20 @@ describe('TDD for black & scholes operations', () => {
 		assert.equal(blacknscholes.d2Term(blacknscholes.d1Term(32,34,0.3,0.0875,0.0822).toFixed(9),0.3,0.0822).toFixed(9), -0.664225567);
 	});	
 
-	it('Should calculate the theoretical derivative price equation', () => {
+	it('Should calculate the theoretical option price equation for a call', () => {
 		const d1 = blacknscholes.d1Term(32,34,0.3,0.0875,0.0822).toFixed(9);
 		const d2 = blacknscholes.d2Term(d1,0.3,0.0822).toFixed(9)
-		assert.equal(blacknscholes.derivativePrice(32,34, 0.0875,0.0822,d1, d2, 'call').toFixed(9), -0.664225567);
+		assert.equal(blacknscholes.optionPrice(32,34, 0.0875, 0.0822, d1, d2, 'call').toFixed(2), 0.46);
 	});	
 
+	it('Should calculate the theoretical option price equation for a put', () => {
+		const d1 = blacknscholes.d1Term(32,34,0.3,0.0875,0.0822).toFixed(9);
+		const d2 = blacknscholes.d2Term(d1,0.3,0.0822).toFixed(9)
+		assert.equal(blacknscholes.optionPrice(32,34, 0.0875, 0.0822, d1, d2, 'put').toFixed(2), 2.22);
+	});
+
+	it('Should calculate the option greek delta equation for a call', () => {
+		const d1 = blacknscholes.d1Term(32,34,0.3,0.0875,0.0822).toFixed(9);
+		assert.equal(blacknscholes.delta(d1, 'call').toFixed(5), 2.22fdfgd);
+	});		
 });

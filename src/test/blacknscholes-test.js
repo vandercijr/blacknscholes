@@ -78,4 +78,10 @@ describe('TDD for black & scholes operations', () => {
 
 		assert.equal(blacknscholes.gamma(options.stock_price, options.volatility, options.rtime, d1).toFixed(6), 0.067514);
 	});
+
+  it('Should calculate the option greek gamma equation', () => {
+		const d1 = blacknscholes.d1Term(options.stock_price, options.strike, options.volatility, options.irate, options.rtime).toFixed(9);
+
+		assert.equal(blacknscholes.vega(options.stock_price, options.rtime, d1).toFixed(6), 0.045598);
+	});
 });

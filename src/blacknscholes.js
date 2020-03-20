@@ -50,6 +50,14 @@ const blacknscholes = {
 		// from https://financetrain.com/option-greeks-rho/
 		// formula is vega = S . N'(d1) /  SQRT(t)
 		return stock_price * gauss.spdf(d1term) * Math.sqrt(rtime) * 0.01;
+	},
+	//theta greek measure
+	theta : (stock_price, strike, volatility, irate, rtime, d1term, d2term, type) => {
+		// from https://financetrain.com/option-greeks-rho/
+		// formula is theta = S . N'(d1) / 2 . SQRT(t) - r.K.e^-r.t .  N(d2)
+		const tf = typeFactor(type);
+
+		return (((-1 * stock_price * gauss.spdf(d1term) * volatility) / (2 * Math.sqrt(rtime))) - tf * irate * strike * eulerRateTime(irate, rtime) * gauss.standardNormalDistribution(d2term * tf)) / 365;
 	}
 }
 

@@ -84,4 +84,18 @@ describe('TDD for black & scholes operations', () => {
 
 		assert.equal(blacknscholes.vega(options.stock_price, options.rtime, d1).toFixed(6), 0.045598);
 	});
+
+  it('Should calculate the option greek theta equation for a call', () => {
+		const d1 = blacknscholes.d1Term(options.stock_price, options.strike, options.volatility, options.irate, options.rtime).toFixed(9);
+    const d2 = blacknscholes.d2Term(d1, options.volatility, options.rtime).toFixed(9);
+
+		assert.equal(blacknscholes.theta(options.stock_price, options.strike, options.volatility, options.irate, options.rtime, d1, d2, 'call').toFixed(6), -0.038668);
+	});
+
+  it('Should calculate the option greek theta equation for a put', () => {
+		const d1 = blacknscholes.d1Term(options.stock_price, options.strike, options.volatility, options.irate, options.rtime).toFixed(9);
+    const d2 = blacknscholes.d2Term(d1, options.volatility, options.rtime).toFixed(9);
+
+		assert.equal(blacknscholes.theta(options.stock_price, options.strike, options.volatility, options.irate, options.rtime, d1, d2, 'put').toFixed(6), -0.034080);
+	});
 });

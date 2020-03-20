@@ -39,11 +39,17 @@ const blacknscholes = {
 
 		return tf * strike * rtime * eulerRateTime(irate, rtime) * gauss.standardNormalDistribution(d2term * tf) * 0.01;
 	},
-	//rho greek measure
+	//gamma greek measure
 	gamma : (stock_price, volatility, rtime, d1term) => {
 		// from https://financetrain.com/option-greeks-rho/
 		// formula is gamma = N'(d1) /  S . V  . SQRT(t)
 		return gauss.spdf(d1term) / (stock_price * volatility * Math.sqrt(rtime));
+	},
+	//vega greek measure
+	vega : (stock_price, rtime, d1term) => {
+		// from https://financetrain.com/option-greeks-rho/
+		// formula is vega = S . N'(d1) /  SQRT(t)
+		return stock_price * gauss.spdf(d1term) * Math.sqrt(rtime) * 0.01;
 	}
 }
 

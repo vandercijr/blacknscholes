@@ -38,6 +38,12 @@ const blacknscholes = {
 		const tf = typeFactor(type);
 
 		return tf * strike * rtime * eulerRateTime(irate, rtime) * gauss.standardNormalDistribution(d2term * tf) * 0.01;
+	},
+	//rho greek measure
+	gamma : (stock_price, volatility, rtime, d1term) => {
+		// from https://financetrain.com/option-greeks-rho/
+		// formula is gamma = N'(d1) /  S . V  . SQRT(t)
+		return gauss.spdf(d1term) / (stock_price * volatility * Math.sqrt(rtime));
 	}
 }
 

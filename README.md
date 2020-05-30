@@ -4,14 +4,22 @@ Implementation of the Black-Scholes market pricing model for an asset
 
 ## The Greeks
 <table>
+  <thead>
   <tr>
-    <td>
+    <th>
       dgwrgg
-    </td>
-    <td>
+    </th>
+    <th>
       aaddf
-    </td>
+    </th>
   </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>dfdfadf</td>
+      <td>dfdfadf</td>
+    </tr>
+  </tbody>
 </table>
 | | Call | Put |
 |-|------|-----|

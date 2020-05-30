@@ -9,11 +9,11 @@
  */
 
 const chai = require('chai');
-const integration = require('../integration.js');
+const integration = require('../math/integration');
 const assert = chai.assert;
 
 describe('TDD for integration computational methods', () => {
-	it('Should calculate the integral of a function', () => {
-		assert.equal(integration.trapezoid((x) => { return Math.pow(x, 2) }, 0, 3, Math.pow(10, 6)).toFixed(8), 9.00000000);
-	});
+  it('Should calculate the integral of a function', () => {
+    assert.equal(integration.trapezoid((x) => { return Math.pow(x, 2); }, 0, 3, Math.pow(10, 6)).toFixed(8), 9.00000000);
+  });
 });

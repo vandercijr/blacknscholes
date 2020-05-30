@@ -7,7 +7,7 @@ Implementation of the Black-Scholes market pricing model for an asset
  |Call | Put
 -|-----|-----
 
-Delta ![Delta Formula](https://github.com/vandercijr/blacknscholes/images/delta_genform.svg)|
+Delta ![Delta Formula](https://cdn.rawgit.com/<repo-owner>/<repo>/<branch>/images/delta_genform.svg)|
 Gamma |
 Vega |
 Rho |
